@@ -31,13 +31,13 @@ const options = {
     openapi: '3.0.0',
     info: {
       version: '1.0.0',
-      title: 'ERP Test',
+      title: 'ABIE',
       description:
-        'ERP Test Online REST API for Testing and Prototyping application. You can perform all major operations with your entities - create, delete and etc.',
+        'ABIE API',
     },
     servers: [
       {
-        url: config.swaggerUrl,
+        url: "https://api.abiescreen.com",
         description: 'Development server',
       },
     ],
@@ -65,6 +65,16 @@ const options = {
 };
 
 const specs = swaggerJsDoc(options);
+
+// app.use(cors({ origin: ['https://frontend-admin-du3w79htk-abie.vercel.app', 'http://localhost:4000','https://dashaboard.abiescreen.com/'] }));
+const corsOptions = {
+  origin: '*', // 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, 
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 app.use(
   '/api-docs',
   function (req, res, next) {

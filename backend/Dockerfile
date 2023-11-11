@@ -1,22 +1,21 @@
-FROM node:14.15
+# Use an official Node.js runtime as a parent image
+FROM node:14
 
-# Create app directory
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-RUN yarn install
-# If you are building your code for production
-# RUN npm ci --only=production
+# Install application dependencies
+RUN npm install
 
+# Copy the rest of your application code to the working directory
+COPY src ./src
 
-# Bundle app source
-COPY . .
-
-
+# Expose the port your Node.js application will run on
 EXPOSE 8080
 
-CMD bash -c "yarn start"
+ENV NODE_ENV=development
+# Command to start your Node.js application
+CMD [ "npm","start"]

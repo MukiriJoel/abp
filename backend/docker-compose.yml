@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  database-layer:
+    image: postgres
+    container_name: database-layer
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=db_erp_test
+
+    volumes:
+      - database-volume:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+    networks:
+      - shared-network
+    restart: on-failure
+  backend-api:
+    depends_on:
+      - database-layer
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: backend-api
+    expose:
+      - '8080'
+    ports:
+      - '8080:8080'
+    command: npm start
+    networks:
+      - shared-network
+    restart: on-failure
+
+volumes:
+  database-volume:
+
+networks:
+  shared-network:
