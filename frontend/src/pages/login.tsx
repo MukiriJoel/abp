@@ -28,8 +28,8 @@ export default function Login() {
     (state) => state.auth,
   );
   const [initialValues, setInitialValues] = React.useState({
-    email: 'admin@flatlogic.com',
-    password: 'password',
+    email: '',
+    password: '',
     remember: true,
   });
 
@@ -67,41 +67,6 @@ export default function Login() {
 
       <SectionFullScreen bg='violet'>
         <div className='flex items-center flex-col space-y-4 w-full'>
-          <CardBox className='w-11/12 md:w-7/12 lg:w-6/12 xl:w-4/12'>
-            <div className='flex flex-row justify-between'>
-              <div>
-                <p className='mb-2'>
-                  Use{' '}
-                  <code
-                    className={'cursor-pointer text-pavitra-blue'}
-                    onClick={(e) => setLogin(e.target)}
-                  >
-                    admin@flatlogic.com
-                  </code>{' '}
-                  to login as Admin
-                </p>
-                <p>
-                  Use{' '}
-                  <code
-                    className={'cursor-pointer text-pavitra-blue'}
-                    onClick={(e) => setLogin(e.target)}
-                  >
-                    client@hello.com
-                  </code>{' '}
-                  to login as User
-                </p>
-              </div>
-              <div>
-                <BaseIcon
-                  className='text-blue-500'
-                  w='w-16'
-                  h='h-16'
-                  size={48}
-                  path={mdiInformation}
-                />
-              </div>
-            </div>
-          </CardBox>
 
           <CardBox className='w-11/12 md:w-7/12 lg:w-6/12 xl:w-4/12'>
             <Formik
@@ -110,7 +75,7 @@ export default function Login() {
               onSubmit={(values) => handleSubmit(values)}
             >
               <Form>
-                <FormField label='Login' help='Please enter your login'>
+                <FormField label='Email' help='Please enter your Email'>
                   <Field name='email' />
                 </FormField>
 

@@ -1,20 +1,12 @@
-# Use an official Node.js runtime as the base image
-FROM node:14
-
-# Set the working directory
+FROM node:16 as build
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install project dependencies
 RUN npm install
-
-# Copy the rest of your application's source code
 COPY . .
+RUN npm run build
 
-# Expose the port that your Next.js app is running on
-EXPOSE 3000
-
-# Start your application
-CMD ["npm", "run", "dev"]
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=build /app ./
+EXPOSE 4000
+CMD ["npm", "run","dev"]

@@ -41,7 +41,7 @@ export default function AsideMenuLayer({
           className={`flex flex-row h-14 items-center justify-between dark:bg-slate-900 ${asideBrandStyle}`}
         >
           <div className='text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0'>
-            <b className='font-black'>ERP Test</b>
+            <b className='font-black'>ABIE Dashboard</b>
           </div>
           <button
             className='hidden lg:inline-block xl:hidden p-3'

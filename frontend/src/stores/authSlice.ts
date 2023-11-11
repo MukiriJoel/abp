@@ -11,7 +11,6 @@ interface MainState {
 }
 
 const initialState: MainState = {
-  /* User */
   isFetching: false,
   errorMessage: '',
   currentUser: null,

@@ -13,6 +13,9 @@ const nextConfig = {
       },
     ],
   },
+  server: {
+    port: 4000,
+  },
 };
 
 export default nextConfig;

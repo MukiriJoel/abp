@@ -136,7 +136,7 @@ export default function LayoutAuthenticated({
           onAsideLgClose={() => setIsAsideLgActive(false)}
         />
         {children}
-        <FooterBar>Hand-crafted & Made with ❤️</FooterBar>
+        {/* <FooterBar>ABIE</FooterBar> */}
       </div>
     </div>
   );

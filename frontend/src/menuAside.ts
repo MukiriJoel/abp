@@ -61,7 +61,7 @@ const menuAside: MenuAsideItem[] = [
     icon: mdiAccountCircle,
   },
   {
-    href: '/api-docs',
+    href: 'https://api.abiescreen.com/api-docs',
     label: 'Swagger API',
     icon: mdiAccountCircle,
     permissions: 'READ_API_DOCS',
