@@ -1,19 +1,20 @@
-FROM node:19
+# Use an official Node.js runtime as the base image
+FROM node:14
 
-# Create app directory
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN yarn install
-# If you are building your code for production
-# RUN npm ci --only=production
+# Install project dependencies
+RUN npm install
 
-# Bundle app source
+# Copy the rest of your application's source code
 COPY . .
 
+# Expose the port that your Next.js app is running on
 EXPOSE 3000
-CMD [ "yarn", "start" ]
+
+# Start your application
+CMD ["npm", "run", "dev"]
