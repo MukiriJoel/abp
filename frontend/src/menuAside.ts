@@ -32,6 +32,12 @@ const menuAside: MenuAsideItem[] = [
     permissions: 'READ_APPRAISAL_REPORTS',
   },
   {
+    href: '/appraisal_summary/appraisal_summary-list',
+    label: 'Appraisal summary',
+    icon: mdiTable,
+    permissions: 'READ_APPRAISAL_SUMMARY',
+  },
+  {
     href: '/features/features-list',
     label: 'Features',
     icon: mdiTable,
@@ -55,6 +61,7 @@ const menuAside: MenuAsideItem[] = [
     icon: mdiTable,
     permissions: 'READ_PERMISSIONS',
   },
+
   {
     href: '/profile',
     label: 'Profile',

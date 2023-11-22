@@ -7,6 +7,7 @@ import usersSlice from './users/usersSlice';
 import appraisal_reportsSlice from './appraisal_reports/appraisal_reportsSlice';
 import featuresSlice from './features/featuresSlice';
 import pdf_formsSlice from './pdf_forms/pdf_formsSlice';
+import appraisal_summarySlice from './appraisal_summary/appraisal_summarySlice';
 import rolesSlice from './roles/rolesSlice';
 import permissionsSlice from './permissions/permissionsSlice';
 
@@ -18,6 +19,7 @@ export const store = configureStore({
 
     users: usersSlice,
     appraisal_reports: appraisal_reportsSlice,
+    appraisal_summary: appraisal_summarySlice,
     features: featuresSlice,
     pdf_forms: pdf_formsSlice,
     roles: rolesSlice,

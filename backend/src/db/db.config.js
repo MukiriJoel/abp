@@ -12,9 +12,9 @@ module.exports = {
   development: {
     dialect: 'postgres',
     username: 'postgres',
-    password: 'root',     
+    password: 'joel12345',     
     database: 'db_erp_test',
-    host: "database-layer", 
+    host: "", 
     port: 5432,            
     logging: console.log,
     seederStorage: 'sequelize',
