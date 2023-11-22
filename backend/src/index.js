@@ -18,6 +18,8 @@ const usersRoutes = require('./routes/users');
 
 const appraisal_reportsRoutes = require('./routes/appraisal_reports');
 
+const appraisal_summaryRoutes = require('./routes/appraisal_summary');
+
 const featuresRoutes = require('./routes/features');
 
 const pdf_formsRoutes = require('./routes/pdf_forms');
@@ -103,6 +105,12 @@ app.use(
   '/api/appraisal_reports',
   passport.authenticate('jwt', { session: false }),
   appraisal_reportsRoutes,
+);
+
+app.use(
+  '/api/appraisal_summary',
+  passport.authenticate('jwt', { session: false }),
+  appraisal_summaryRoutes,
 );
 
 app.use(

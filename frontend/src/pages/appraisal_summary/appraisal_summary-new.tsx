@@ -32,6 +32,7 @@ import {
   import { useAppDispatch } from '../../stores/hooks';
   import { useRouter } from 'next/router';
 import {Card,CardContent,CardHeader} from '@mui/material';
+import axios from 'axios';
 
   
   
@@ -44,27 +45,29 @@ import {Card,CardContent,CardHeader} from '@mui/material';
   
     const handleSubmit = async (data) => {
       await dispatch(create(data));
-     
+      setisFilePicked(true);
+      const formData=new FormData();
+      formData.append('file',file);
+      
+      try {
+        const response = await axios.post('http://localhost:8080//appraisal_summary/', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // Adjust the content-type if needed
+          },
+        });
+      
+        const result = response.data;
+        setExtractedData(result.data);
+        console.log(result.data);
+      } catch (error) {
+        console.error('Error uploading file', error);
+      }   
       // await router.push('/appraisal_summary/appraisal_summary-list');
     };
 
     const handleFileChange =async(event) => {
       setFile(event.target.files[0]);
-      setisFilePicked(true);
-      const formData=new FormData();
-      formData.append('file',file);
-      
-      try{
-        const response=await fetch('localhost:8080/pdf_extract/pdfconv.py',{
-          method:'POST',
-          body:formData
-        });
-        const result=await response.text();
-        setExtractedData(result);
-        console.log(result);
-      }catch(error){
-        console.error('Error uploading file',error);
-      }    
+    
     };
     
 
@@ -126,9 +129,10 @@ import {Card,CardContent,CardHeader} from '@mui/material';
                           />
                         </FormField>
 
+
                         <FormField label='Extracted Text(JSON)' hasTextareaHeight>
                         <Field
-                        name='textarea'
+                        name='extracted_text'
                         as='textarea'
                         placeholder='extracted text here'
                         value={isFilePicked? JSON.stringify(extractedData,null,2):''}

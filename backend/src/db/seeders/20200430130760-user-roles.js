@@ -148,7 +148,30 @@ primary key ("roles_permissionsId", "permissionId")
         roles_permissionsId: getId('User'),
         permissionId: getId('DELETE_APPRAISAL_REPORTS'),
       },
-
+{
+        createdAt,
+        updatedAt,
+        roles_permissionsId: getId('User'),
+        permissionId: getId('CREATE_APPRAISAL_SUMMARY'),
+      },
+      {
+        createdAt,
+        updatedAt,
+        roles_permissionsId: getId('User'),
+        permissionId: getId('READ_APPRAISAL_SUMMARY'),
+      },
+      {
+        createdAt,
+        updatedAt,
+        roles_permissionsId: getId('User'),
+        permissionId: getId('UPDATE_APPRAISAL_SUMMARY'),
+      },
+      {
+        createdAt,
+        updatedAt,
+        roles_permissionsId: getId('User'),
+        permissionId: getId('DELETE_APPRAISAL_SUMMARY'),
+      },
       {
         createdAt,
         updatedAt,

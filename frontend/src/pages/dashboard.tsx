@@ -130,6 +130,35 @@ const Dashboard = () => {
               </div>
             </Link>
           )}
+          
+          {hasPermission(currentUser, 'READ_APPRAISAL_SUMMARY') && (
+            <Link
+              href={'/appraisal_summary/appraisal_summary-list'}
+              className='mr-3'
+            >
+              <div className='rounded dark:bg-gray-900/70 bg-white border border-pavitra-400 p-6'>
+                <div className='flex justify-between align-center'>
+                  <div>
+                    <div className='text-lg leading-tight text-gray-500 dark:text-gray-400'>
+                      Appraisal_reports
+                    </div>
+                    <div className='text-3xl leading-tight font-semibold'>
+                      {appraisal_reports}
+                    </div>
+                  </div>
+                  <div>
+                    <BaseIcon
+                      className='text-blue-500'
+                      w='w-16'
+                      h='h-16'
+                      size={48}
+                      path={mdiInformation}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          )}
 
           {hasPermission(currentUser, 'READ_FEATURES') && (
             <Link href={'/features/features-list'} className='mr-3'>
